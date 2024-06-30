@@ -1,18 +1,16 @@
-export class Parcela{
-    constructor(title,content = null){
-        this.title = title;
-        if (content != null){
-            this.content = content;
-        } else {
-            this.content = "¡No has escrito nada todavia!";
-        }
-    };
-}
-
-
-export class Nota{
-    constructor(id, texto){
+export class Tarea{
+    constructor(tituloInput, textoInput, id, contenido = null){
+        this.info = { titulo: tituloInput, 
+                       subtitulo:  textoInput };
         this.id = id;
-        this.texto = texto;
+        if (contenido != null){
+            this.contenido = contenido;
+        } else {
+            this.contenido = '¡No hay nada aqui dentro aún!';
+        };
     }
-}
+
+    mostrarPropiedades(){
+        return `Esta tarea contiene las siguientes propiedades: Tiulo: ${this.info.titulo}, Subtitulo: ${this.info.subtitulo}, ID: ${this.id}, Contenido: ${this.contenido}.`;
+    }
+};
